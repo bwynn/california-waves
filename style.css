@@ -1,0 +1,336 @@
+@charset "UTF-8";
+/* CSS Document */
+/* Name: style.css */
+/* Author: Brian Wynn */
+/* Site url: http://www.brianwynndesign.com/surf/surf.html */
+html {
+	display: block;
+	background: #000;
+	}
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: lighter;
+	color: #5E4133;
+	background-color: #444;
+	margin: 0 auto;
+	-webkit-overflow-x: hidden;
+	overflow-x: hidden;
+	max-width: 1280px;
+}
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-bottom: 0;
+	}
+div {
+	float: left;
+	width: 100%;
+	}
+a {
+	color: #5E4133;
+	text-decoration: none;
+	}
+article {
+	background: #333;
+	padding: 1px 10px 1px 10px;
+	border-radius: 10px 2px;
+	-webkit-box-shadow: inset 2px 2px 2px #222;
+	-moz-box-shadow: inset 2px 2px 2px #222;
+	box-shadow: inset 2px 2px 2px #222;
+		}
+article p {
+	text-align: justify;
+	color: #fff;
+	}
+button {
+	background: #248F47;
+	border: #25C95A;
+	color: #fff;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-family: 'open sans', sans-serif;
+	font-size: 1em;
+	clear: both;
+	width: 100%;
+	margin-top:5px;
+	}
+	
+button:focus, button:hover {
+	outline: none;
+	background: #1E753A;
+}
+img {
+	width: 100%;
+	float: left;
+	-webkit-box-shadow: 2px 2px 10px 2px #222;
+	-moz-box-shadow: 2px 10px 2px #222;
+	box-shadow: 2px 2px 10px 2px #222;
+	}
+ul.photos li a img {
+	margin-top: 20px;
+	}
+div#lightboxOverlay.lightboxOverlay {
+	float: none;
+	}
+div#lightbox.lightbox {
+	float: none;
+	width: "";
+	}
+div.lb-dataContainer {
+	float: none;
+	}
+div.lb-data {
+	float: none;
+	}
+div.lb-closeContainer {
+	width: 13%;
+	}
+div.lb-outerContainer {
+	float: none;
+	}
+.footer p {
+	clear: both;
+	text-align: center;
+	padding-top: 45px;
+	}
+.footer .return {
+	margin-left: 41%;
+	}
+/* ------------------ Classes & IDs ---------------- */
+.caLogo {
+	display: hidden;
+	}
+.container {
+	display: block;
+	background-image: url("../img/background.png");
+	}
+.highlight {
+	background: #333;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	}
+.poster {
+	height: 500px;
+	overflow: hidden;
+	background-image: url("../img/poster_monday.jpg");
+	-webkit-box-shadow: 2px 2px 10px 2px #222;
+	-moz-box-shadow: 2px 10px 2px #222;
+	box-shadow: 2px 2px 10px 2px #222;
+	}
+.poster h1 {
+	color: #fff;
+	position: relative;
+	bottom: -300px;
+	right: -100px;
+	-webkit-text-shadow: 1px 1px 1px #444;
+	-moz-text-shadow: 1px 1px 1px #444;
+	text-shadow: 1px 1px 1px #444;
+	width: 315px;
+	}
+.mainImg {
+	margin: 0;
+	width: 100%;
+	}
+.details {
+	display: none;
+	width: 285%;
+	margin-left: 15%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	}
+#premise {
+	width: 30%;
+	margin-left: 3%;
+	}
+#predict {
+	width: 30%;
+	float: left;
+	position: relative;
+	left: 30px;
+	}
+.predictBtn {
+	position: relative;
+	left: 45%;
+	}
+.divider {
+	margin-top: 20px;
+	}
+.img {
+	margin-top: 20px;
+	width: 100%;
+	float: left;
+	-webkit-box-shadow: 2px 2px 10px 2px #222;
+	-moz-box-shadow: 2px 10px 2px #222;
+	box-shadow: 2px 2px 10px 2px #222;
+	}
+#steamers, #rincon, #trestles {
+	width: 30%;
+	margin-left: 23px;
+	padding: 5px;
+	}
+#steamers h2, #rincon h2, #trestles h2 {
+	border-bottom: 3px solid #888;
+	font-weight: lighter;
+	}
+.photos {
+	display: none;
+	}
+.photos li {
+	height: 120px;
+	max-width: 100%;
+	}
+ul li {
+	padding: 0 0 10px 0;
+	}
+ul.photos li span {
+	width: 98%;
+	background: hsla(0, 33%, 10%, .7);
+	position: relative;
+	left: 0;
+	top: -25px;
+	padding: 2px 0 2px 8px;
+	color: white;
+	}
+.photos span {
+	display: none;
+	}
+button.bestbet {
+	background: #4A56CF;
+	}
+button.bestbet:hover {
+	background: #404AB2;
+	}
+div#premise button {
+	background: #C2363B;
+	}
+div#premise button:hover {
+	background: #A62E32;
+	}
+.wavesContainer h2 {
+	margin-left: 2%;
+	margin-top: 40px;
+	}
+.wavesContainer a:hover {
+	color: #999;
+	}
+/* --------------------------- Responsive Queries -------------------------- */
+@media only screen and (max-width: 1099px) {
+	.poster {
+		background-position: -30px;
+		}
+	}
+@media only screen and (max-width: 959px) {
+	.poster {
+		background-position: -120px;
+		}
+	.details {
+		margin-left: 10%;
+		}
+	#steamers, #rincon, #trestles {
+    width: 28%;
+		}
+	}
+@media only screen and (max-width: 767px) {
+	.poster {
+		background-position: -250px;
+		}
+	.poster h1 {
+		
+		}
+		
+	}
+@media only screen and (max-width: 691px) {
+	.poster h1 {
+		left: 12px;
+		bottom: 0;
+		}
+	#steamers, #rincon, #trestles {
+    	width: 93%;
+		margin-left: 15px;
+		}
+	.footer .return {
+    	margin-left: 30%;
+	}
+	}
+@media only screen and (max-width: 499px) {
+	button {
+		height: 50px;
+		}
+	.poster {
+		background-position: -400px;
+		}
+	.poster h1 {
+		bottom: 0;
+		text-align: center;
+		}
+	#steamers, #rincon, #trestles {
+    	margin-left: 10px;
+		}
+	}
+@media only screen and (max-width: 360px) {
+	.container {
+		background: #fff;
+		background-image: url('../img/background_mobile.png');
+		}
+	.caLogo {
+		display: block;
+		background: url('../img/ca_logo.png') no-repeat;
+		position: relative;
+		top: 257px;
+		height: 100px;
+		}
+	div#premise button, div#waves button {
+		background: hsla(137, 16%, 77%, 0.6);
+		border: 2px solid #5E4133;
+		/*transition: */
+	}
+	div#premise button:hover {
+		background: hsla(137, 16%, 77%, 1);
+		}
+	#waves {
+		width: 30%;
+		margin-left: 36px;
+		}
+	button {
+		color: #5E4133;
+		}
+	button.bestbet {
+		background: hsla(137, 16%, 77%, 0.6);
+		border: 2px solid #5E4133;
+		}
+	button.bestbet:hover, #waves button:hover {
+		background: hsla(137, 16%, 77%, 1);
+		}
+	.poster {
+		background-position: -585px;
+		height: 400px;
+		}
+	.poster h1 {
+		color: #D0F7F4;
+		bottom: -110px;
+		left: 13px;
+		text-align: left;
+		width: 142px;
+		font-size: 46px;
+	}
+	.poster h1 span {
+		font-family: 'Yellowtail', cursive;
+		font-size: 30px;
+		position: relative;
+    	top: 13px;	
+		}
+	.details {
+		margin-left: 6%;
+		}
+	#steamers, #rincon, #trestles {
+    	margin-left: 5px;
+		}
+	#predict {
+		margin-left: -24px;
+		}
+	.footer .return {
+	margin-left: 16%;
+	}
+	}
