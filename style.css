@@ -3,6 +3,9 @@
 /* Name: style.css */
 /* Author: Brian Wynn */
 /* Site url: http://www.brianwynndesign.com/surf/surf.html */
+
+/* ======================= Global Styles ======================== */
+
 html {
 	display: block;
 	background: #000;
@@ -21,6 +24,9 @@ ul {
 	list-style-type: none;
 	padding-left: 0;
 	margin-bottom: 0;
+	}
+ul li {
+	padding: 0 0 10px 0;
 	}
 div {
 	float: left;
@@ -55,11 +61,11 @@ button {
 	width: 100%;
 	margin-top:5px;
 	}
-	
 button:focus, button:hover {
 	outline: none;
 	background: #1E753A;
-}
+	cursor: pointer;
+	}
 img {
 	width: 100%;
 	float: left;
@@ -67,37 +73,23 @@ img {
 	-moz-box-shadow: 2px 10px 2px #222;
 	box-shadow: 2px 2px 10px 2px #222;
 	}
-ul.photos li a img {
-	margin-top: 20px;
-	}
-div#lightboxOverlay.lightboxOverlay {
-	float: none;
-	}
-div#lightbox.lightbox {
-	float: none;
-	width: "";
-	}
-div.lb-dataContainer {
-	float: none;
-	}
-div.lb-data {
-	float: none;
-	}
-div.lb-closeContainer {
-	width: 13%;
-	}
-div.lb-outerContainer {
-	float: none;
-	}
+	
+/* ========================= Footer Styles ===================== */
+
 .footer p {
 	clear: both;
 	text-align: center;
 	padding-top: 45px;
 	}
 .footer .return {
-	margin-left: 41%;
+	margin-left: 41.5%;
 	}
-/* ------------------ Classes & IDs ---------------- */
+	
+/* ========================= Classes & IDs ===================== */
+
+body .highlight, body .highlight a {
+	color: #fff;
+	}
 .caLogo {
 	display: hidden;
 	}
@@ -136,7 +128,7 @@ div.lb-outerContainer {
 .details {
 	display: none;
 	width: 285%;
-	margin-left: 15%;
+	margin-left: 11%;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	}
@@ -181,17 +173,17 @@ div.lb-outerContainer {
 	height: 120px;
 	max-width: 100%;
 	}
-ul li {
-	padding: 0 0 10px 0;
-	}
 ul.photos li span {
-	width: 98%;
 	background: hsla(0, 33%, 10%, .7);
 	position: relative;
 	left: 0;
-	top: -25px;
-	padding: 2px 0 2px 8px;
+	top: -24px;
+	padding: 2px 20px 2px 20px;
+	overflow-x: hidden;
 	color: white;
+	}
+ul.photos li a img {
+	margin-top: 20px;
 	}
 .photos span {
 	display: none;
@@ -215,7 +207,29 @@ div#premise button:hover {
 .wavesContainer a:hover {
 	color: #999;
 	}
-/* --------------------------- Responsive Queries -------------------------- */
+	
+/* ============================ Lightbox Styles ================== */
+
+div#lightboxOverlay.lightboxOverlay {
+	float: none;
+	}
+div#lightbox.lightbox {
+	float: none;
+	width: "";
+	}
+div.lb-dataContainer {
+	float: none;
+	}
+div.lb-data {
+	float: none;
+	}
+div.lb-closeContainer {
+	width: 13%;
+	}
+div.lb-outerContainer {
+	float: none;
+	}
+/* ========================== Responsive Queries =================== */
 @media only screen and (max-width: 1099px) {
 	.poster {
 		background-position: -30px;
@@ -236,10 +250,9 @@ div#premise button:hover {
 	.poster {
 		background-position: -250px;
 		}
-	.poster h1 {
-		
+	.details {
+		margin-left: 10%;
 		}
-		
 	}
 @media only screen and (max-width: 691px) {
 	.poster h1 {
