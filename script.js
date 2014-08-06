@@ -1,10 +1,14 @@
 // JavaScript Document
 $(document).ready(function() {
-	// Inserted content
+	
+	// Appends a link onto the end of each 
+	// wave's unordered list description
 	var message = $("<a href='http://www.surfline.com'>Check current conditions</a>");
 	$("button", ".wavesContainer").before(message);
 	
-	//Random wave of the day	
+	//Random wave of the day
+	//This randomly selects between the different 
+	//div containers with a .waves class	
 	$("#predict").on("click", ".bestbet" , function() {
 		var waves = $(".wavesContainer");
 		var items = waves.find(".waves");
@@ -15,6 +19,7 @@ $(document).ready(function() {
 		});
 		
 	// Premise Toggle
+	// Displays toggled article 
 	$("#premise").on("click", "button", function() {
 		$(this).show();
 		$(".details").slideToggle();
@@ -39,8 +44,8 @@ $(document).ready(function() {
 	$(".photos").on("mouseenter", "li", showPhotos)
                 .on("mouseleave", "li", showPhotos);
 				
-	//Click function
-	
+				
+	//Identifies the day of the week
 	var d = new Date();
 	var weekday = new Array(7);
 	weekday[0] = "sunday";
@@ -52,6 +57,9 @@ $(document).ready(function() {
 	weekday[6] = "saturday";
 	var today = weekday[d.getDay()];
 	
+	//Changes main poster image every day
+	//Using above today variable and changing the string of the 
+	//image url to get us to each day's featured poster image
 	$(".poster").css("background-image", "url(img/poster_" + today + ".jpg)");
 	$(".poster").addClass("mainImg");
 
