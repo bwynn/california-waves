@@ -23,25 +23,33 @@
 </head>
 <body>
 	<div class="container">
+    	<nav>
+            <button class="homeBtn"><a href="../index.php">&lt; back to BrianWynnDesign</a></button>
+            <h1><span>Waves of</span> California</h1>
+        </nav>
     	<div class="poster">
         	<div class="caLogo">
             </div>
             <h1><span>Waves of</span> California</h1>
         </div>
         <div class="divider">
-        <div id="premise">
-        	<button>Premise</button>
-            <article class="details">
-            	<p>This page is a starting point of something bigger. What exactly? Well, all good things come to those who wait. So, for the sake of here and now, let's just call it a live demo utilizing jQuery features to lay out some content that is very close to my heart.</p>
-                <p>So, these are several waves in California that get to take the showcase on this page. Back off Warchild! These waves are well known and the few people that this page actually inspires to take up surfing and then go crowd these lineups will be but a scratch in these lineups. Seriously. Try getting a session out at Lowers without at least 30 of your best friends. Not gonna happen. So click around. Have fun!</p>
-            </article>
-        </div>
-        <div id="predict">
-        	<button class="bestbet">Today's Best Bet</button>
-        </div>
-        <!-- <div id="waves"> -->
-        	<!-- <button>Waves</button> -->
-        <!-- </div> -->
+            <div id="premise">
+                <button>Premise</button>
+                <article class="details">
+                    <p>This page is a starting point of something bigger. What exactly? Well, all good things come to those who wait. So, for the sake of here and now, let's just call it a live demo utilizing jQuery features to lay out some content that is very close to my heart.</p>
+                    <p>So, these are several waves in California that get to take the showcase on this page. Back off Warchild! These waves are well known and the few people that this page actually inspires to take up surfing and then go crowd these lineups will be but a scratch in these lineups. Seriously. Try getting a session out at Lowers without at least 30 of your best friends. Not gonna happen. So click around. Have fun!</p>
+                </article>
+            </div>
+            <div id="predict">
+                <button class="bestbet">Today's Best Bet</button>
+            </div>
+            <!-- <div> -->
+                <!-- <button class="date">Button</button> -->
+                <!-- <p id="date"></p> -->
+            <!-- </div> -->
+            <!-- <div id="waves"> -->
+                <!-- <button>Waves</button> -->
+            <!-- </div> -->
         </div><!-- end divider -->
         <div class="wavesContainer">
         	<h2>The Waves</h2>
@@ -49,10 +57,19 @@
             	<a class="mainDrop">
                 <img src="img/steamerlane_main.jpg" class="hmImg"></a>
                 <h2>Steamer Lane</h2>
-                <ul>
-                    <li>Cold Water</li>
-                    <li>Big Waves</li>
-                </ul>
+                <h3><strong>Current Conditions</strong></h3>
+               	<h4><strong>Weather</strong></h4>
+                        <ul>
+                        	<li class="gmt"></li>
+                            <li class="temp"></li>
+                            <li class="windDir"></li>
+                            <li class="weatherDesc"></li>
+                       	</ul>
+             	<h4><strong>Known for</strong></h4>
+                        <ul>
+                            <li>Cold Water</li>
+                            <li>Big Waves</li>
+                        </ul>
                 <button>Gallery</button>
                 <ul class="photos">
                     <li>
@@ -78,10 +95,18 @@
             <div id="rincon" class="waves">
             	<img src="img/rincon_main.jpg" class="hmImg">
                 <h2>Rincon</h2>
-                <ul>
-                    <li>Pointbreak Perfection</li>
-                    <li>Fast, steep walls</li>
-                </ul>
+                <h3><strong>Current Conditions</strong></h3>
+                <h4><strong>Weather</strong></h4>
+                        <ul>
+                            <li class="temp"></li>
+                            <li class="windDir"></li>
+                            <li class="weatherDesc"></li>
+                       	</ul>
+             	<h4><strong>Known for</strong></h4>
+                        <ul>
+                            <li>Pointbreak Perfection</li>
+                            <li>Fast, steep walls</li>
+                        </ul>
                 <button type="button">Gallery</button>
                 <ul class="photos">
                     <li>   
@@ -107,10 +132,18 @@
              <div id="trestles" class="waves">
              	<img src="img/trestles_main.jpg" class="hmImg">
                 <h2>Trestles</h2>
-                <ul>
-                    <li>SoCal at it's Finest</li>
-                    <li>Completely Rippable</li>
-                </ul>
+                <h3><strong>Current Conditions</strong></h3>
+                <h4><strong>Weather</strong></h4>
+                        <ul>
+                            <li class="temp"></li>
+                            <li class="windDir"></li>
+                            <li class="weatherDesc"></li>
+                       	</ul>
+             	<h4><strong>Known for</strong></h4>
+                        <ul>
+                            <li>SoCal at it's Finest</li>
+                            <li>Completely Rippable</li>
+                        </ul>
                 <button type="button">Gallery</button>
                 <ul class="photos">
                     <li>
@@ -136,7 +169,6 @@
         </div><!-- end wavesContainer -->
         <div class="footer">
     		<p><small>&copy; 2014 Brian Wynn Design</small></p>
-            <a class="return" href="../../index.php">&lt;&lt; Back to Brian Wynn Design</a>
         </div>
     </div><!-- end container -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
