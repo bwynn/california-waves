@@ -2,13 +2,16 @@
 /* CSS Document */
 /* Name: style.css */
 /* Author: Brian Wynn */
-/* Site url: http://www.brianwynndesign.com/surf/surf.html */
+/* Site url: http://www.brianwynndesign.com/surf */
 
 /* ======================= Global Styles ======================== */
 
 html {
-	display: block;
 	background: #000;
+	}
+html,
+.container {
+	display: block;
 	}
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -28,8 +31,13 @@ ul {
 ul li {
 	padding: 0 0 10px 0;
 	}
-div {
+div,
+img,
+#predict,
+.img {
 	float: left;
+	}
+div {
 	width: 100%;
 	}
 a {
@@ -46,7 +54,6 @@ article {
 		}
 article p {
 	text-align: justify;
-	color: #fff;
 	}
 button {
 	background: #248F47;
@@ -68,7 +75,6 @@ button:focus, button:hover {
 	}
 img {
 	width: 100%;
-	float: left;
 	-webkit-box-shadow: 2px 2px 10px 2px #222;
 	-moz-box-shadow: 2px 10px 2px #222;
 	box-shadow: 2px 2px 10px 2px #222;
@@ -87,14 +93,17 @@ img {
 	
 /* ========================= Classes & IDs ===================== */
 
-body .highlight, body .highlight a {
+body .highlight, 
+body .highlight a, 
+.poster h1,
+ul.photos li span,
+article p {
 	color: #fff;
 	}
 .caLogo {
 	display: hidden;
 	}
 .container {
-	display: block;
 	background-image: url("../img/background.png");
 	}
 .highlight {
@@ -111,9 +120,13 @@ body .highlight, body .highlight a {
 	-moz-box-shadow: 2px 10px 2px #222;
 	box-shadow: 2px 2px 10px 2px #222;
 	}
-.poster h1 {
-	color: #fff;
+.poster h1,
+#predict,
+.predictBtn,
+ul.photos li span {
 	position: relative;
+	}
+.poster h1 {
 	bottom: -300px;
 	right: -100px;
 	-webkit-text-shadow: 1px 1px 1px #444;
@@ -126,7 +139,6 @@ body .highlight, body .highlight a {
 	width: 100%;
 	}
 .details {
-	display: none;
 	width: 285%;
 	margin-left: 11%;
 	margin-top: 20px;
@@ -138,12 +150,9 @@ body .highlight, body .highlight a {
 	}
 #predict {
 	width: 30%;
-	float: left;
-	position: relative;
 	left: 30px;
 	}
 .predictBtn {
-	position: relative;
 	left: 45%;
 	}
 .divider {
@@ -152,7 +161,6 @@ body .highlight, body .highlight a {
 .img {
 	margin-top: 20px;
 	width: 100%;
-	float: left;
 	-webkit-box-shadow: 2px 2px 10px 2px #222;
 	-moz-box-shadow: 2px 10px 2px #222;
 	box-shadow: 2px 2px 10px 2px #222;
@@ -166,7 +174,9 @@ body .highlight, body .highlight a {
 	border-bottom: 3px solid #888;
 	font-weight: lighter;
 	}
-.photos {
+.photos, 
+.photos span,
+.details {
 	display: none;
 	}
 .photos li {
@@ -175,18 +185,13 @@ body .highlight, body .highlight a {
 	}
 ul.photos li span {
 	background: hsla(0, 33%, 10%, .7);
-	position: relative;
 	left: 0;
 	top: -24px;
 	padding: 2px 20px 2px 20px;
 	overflow-x: hidden;
-	color: white;
 	}
 ul.photos li a img {
 	margin-top: 20px;
-	}
-.photos span {
-	display: none;
 	}
 button.bestbet {
 	background: #4A56CF;
@@ -210,24 +215,18 @@ div#premise button:hover {
 	
 /* ============================ Lightbox Styles ================== */
 
-div#lightboxOverlay.lightboxOverlay {
+div#lightboxOverlay.lightboxOverlay,
+div#lightboxy.lightbox,
+div.lb-dataContainer,
+div.lb-data,
+div.lb-outerContainer {
 	float: none;
 	}
 div#lightbox.lightbox {
-	float: none;
 	width: "";
-	}
-div.lb-dataContainer {
-	float: none;
-	}
-div.lb-data {
-	float: none;
 	}
 div.lb-closeContainer {
 	width: 13%;
-	}
-div.lb-outerContainer {
-	float: none;
 	}
 /* ========================== Responsive Queries =================== */
 @media only screen and (max-width: 1099px) {
