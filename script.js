@@ -63,13 +63,20 @@ $(document).ready(function() {
 	$(".poster").css("background-image", "url(img/poster_" + today + ".jpg)");
 	$(".poster").addClass("mainImg");
 
+
 	// Steamer Lane Weather conditions
 		var waves = $(this);
+
 		var api = "c9cda4e16df76d61eb092e6b5c5910ee3f0c6f3c";
-		var staCzUrl = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=95062&format=json&date=today&key=" + api;
+		//change staCzUrl into a general array carrying the url for each location.
+		//later, clean up the url string to isolate the location. in fact -
+		//lets do that next instead. Done properly, this could clean up the
+		//scalability to allow easy injection of future locations
+		var zips = ["95062", "93014","92674"]
+		var location_call = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=" + zips[2] + "&format=json&date=today&key=" + api;
 		$.ajax({
 			type: 'POST',
-			url: staCzUrl,
+			url: location_call,
 			dataType: 'jsonp',
 			data: waves.serialize(),
 			success: function(data){
@@ -120,6 +127,7 @@ $(document).ready(function() {
 				},
 			error: function(e) {console.log('epic fail')}
 			});
+
 
 		// Marine Conditions
 
