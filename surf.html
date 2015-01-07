@@ -1,178 +1,226 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="keywords" content="Brian Wynn, Brian Wynn Design, web design, web, mobile design, web development, web developer, ui design, ux design, surfing, california, california surf, steamer lane, rincon, trestles">
-<meta name="description" content="This is a jQuery based page, built by Brian Wynn Design. Content on this site is intended for personal portfolio use, and is not intended to be distributed for commercial purposes.">
-<title>California Waves</title>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
-<link href="css/lightbox.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-<script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Brian Wynn, Brian Wynn Design, web design, web, mobile design, web development, web developer, ui design, ux design, surfing, california, california surf, steamer lane, rincon, trestles">
+  <meta name="description" content="This is a jQuery based page, built by Brian Wynn Design. Content on this site is intended for personal portfolio use, and is not intended to be distributed for commercial purposes.">
+  <title>California Waves</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+  <link href="css/lightbox.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-51444898-1', 'brianwynndesign.com');
   ga('send', 'pageview');
 
-</script>
+  </script>
 </head>
 <body>
-	<div class="container">
-    	<nav>
-            <button class="homeBtn"><a href="../index.php">&lt; back to BrianWynnDesign</a></button>
-            <h1><span>Waves of</span> California</h1>
-        </nav>
-    	<div class="poster">
-        	<div class="caLogo">
-            </div>
-            <h1><span>Waves of</span> California</h1>
-        </div>
-        <div class="divider">
-            <div id="premise">
-                <button>Premise</button>
-                <article class="details">
-                    <p>This page is a starting point of something bigger. What exactly? Well, all good things come to those who wait. So, for the sake of here and now, let's just call it a live demo utilizing jQuery features to lay out some content that is very close to my heart.</p>
-                    <p>So, these are several waves in California that get to take the showcase on this page. Back off Warchild! These waves are well known and the few people that this page actually inspires to take up surfing and then go crowd these lineups will be but a scratch in these lineups. Seriously. Try getting a session out at Lowers without at least 30 of your best friends. Not gonna happen. So click around. Have fun!</p>
-                </article>
-            </div>
-            <div id="predict">
-                <button class="bestbet">Today's Best Bet</button>
-            </div>
-            <!-- <div> -->
-                <!-- <button class="date">Button</button> -->
-                <!-- <p id="date"></p> -->
-            <!-- </div> -->
-            <!-- <div id="waves"> -->
-                <!-- <button>Waves</button> -->
-            <!-- </div> -->
-        </div><!-- end divider -->
-        <div class="wavesContainer">
-        	<h2>The Waves</h2>
-            <div id="steamers" class="waves">
-            	<a class="mainDrop">
-                <img src="img/steamerlane_main.jpg" class="hmImg"></a>
-                <h2>Steamer Lane</h2>
-                <h3><strong>Current Conditions</strong></h3>
-               	<h4><strong>Weather</strong></h4>
-                        <ul>
-                        	<li class="gmt"></li>
-                            <li class="temp"></li>
-                            <li class="windDir"></li>
-                            <li class="weatherDesc"></li>
-                       	</ul>
-             	<h4><strong>Known for</strong></h4>
-                        <ul>
-                            <li>Cold Water</li>
-                            <li>Big Waves</li>
-                        </ul>
-                <button>Gallery</button>
-                <ul class="photos">
-                    <li>
-                    	<a href="img/steamerlane.jpg" data-lightbox="steamers" data-title="Sunny in Central California">
-                        	<img src="img/steamerlane.jpg">
-                        	<span>Sunny in central cal</span>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="img/steamers2.jpg" data-lightbox="steamers" data-title="Many options to choose from">
-                        	<img src="img/steamers2.jpg">
-                    		<span>Many Options</span>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="img/steamers3.jpg" data-lightbox="steamers" data-title="Aerial overview">
-                    		<img src="img/steamers3.jpg">
-                    		<span>Aerial Overview</span>
-                    	</a>
-                    </li>
-                </ul>
-            </div><!-- end steamers -->
-            <div id="rincon" class="waves">
-            	<img src="img/rincon_main.jpg" class="hmImg">
-                <h2>Rincon</h2>
-                <h3><strong>Current Conditions</strong></h3>
-                <h4><strong>Weather</strong></h4>
-                        <ul>
-                            <li class="temp"></li>
-                            <li class="windDir"></li>
-                            <li class="weatherDesc"></li>
-                       	</ul>
-             	<h4><strong>Known for</strong></h4>
-                        <ul>
-                            <li>Pointbreak Perfection</li>
-                            <li>Fast, steep walls</li>
-                        </ul>
-                <button type="button">Gallery</button>
-                <ul class="photos">
-                    <li>
-                    	<a href="img/rincon_cropped.jpg" data-lightbox="rincon" data-title="Rincon firing">
-                    		<img src="img/rincon_cropped.jpg">
-                        	<span>Rincon Firing</span>
-                    	</a>
-                    </li>
-                    <li>
-                    	<a href="img/rincon2.jpg" data-lightbox="rincon" data-title="Classic lineup shot">
-                        <img src="img/rincon2.jpg">
-                        <span>Classic Lineup</span>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="img/rincon3.jpg" data-lightbox="rincon" data-title="The real locals dropping in">
-                        <img src="img/rincon3.jpg">
-                        <span>The Real Locals</span>
-                        </a>
-                    </li>
-                </ul>
-            </div><!-- end rincon -->
-             <div id="trestles" class="waves">
-             	<img src="img/trestles_main.jpg" class="hmImg">
-                <h2>Trestles</h2>
-                <h3><strong>Current Conditions</strong></h3>
-                <h4><strong>Weather</strong></h4>
-                        <ul>
-                            <li class="temp"></li>
-                            <li class="windDir"></li>
-                            <li class="weatherDesc"></li>
-                       	</ul>
-             	<h4><strong>Known for</strong></h4>
-                        <ul>
-                            <li>SoCal at it's Finest</li>
-                            <li>Completely Rippable</li>
-                        </ul>
-                <button type="button">Gallery</button>
-                <ul class="photos">
-                    <li>
-                    	<a href="img/trestles1.jpg" data-lightbox="trestles" data-title="Just you and 60 other guys">
-                        <img src="img/trestles1.jpg">
-                        <span>Crowds</span>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="img/trestles2.jpg" data-lightbox="trestles" data-title="Perfection in So Cal">
-                        <img src="img/trestles2.jpg">
-                        <span>Perfect</span>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="img/trestles3.jpg" data-lightbox="trestles" data-title="A veritable skatepark">
-                        <img src="img/trestles3.jpg">
-                        <span>Veritable Skatepark</span>
-                        </a>
-                    </li>
-                </ul>
-            </div><!-- end trestles -->
-        </div><!-- end wavesContainer -->
-        <div class="footer">
-    		<p><small>&copy; 2014 Brian Wynn Design</small></p>
-        </div>
-    </div><!-- end container -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="js/lightbox.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+  <div class="container">
+    <nav>
+      <button class="homeBtn"><a href="../index.php">&lt; back to BrianWynnDesign</a></button>
+      <h1><span>Waves of</span> California</h1>
+    </nav>
+    <div class="poster">
+      <div class="caLogo">
+      </div>
+      <h1><span>Waves of</span> California</h1>
+    </div>
+    <div class="divider">
+      <!-- <div id="waves">
+      <button class="wavesBtn">Waves</button>
+      <ul id="toggleNav">
+      <li id="wave1"><a href="#steamers">Steamer Lane</a></li>
+      <li id="wave2"><a href="#rincon">Rincon</a></li>
+      <li id="wave3"><a href="#trestles">Trestles</a></li>
+    </ul>
+  </div><!-- end #waves navigation div -->
+  <div id="premise">
+    <button>Premise</button>
+    <article class="details">
+      <p>This page is a starting point of something bigger. What exactly? Well, all good things come to those who wait. So, for the sake of here and now, let's just call it a live demo utilizing jQuery features and AJAX data to lay out some content that is very close to my heart.</p>
+      <p>So, these are several waves in California that get to take the showcase on this page. Back off Warchild! These waves are well known and the few people that this page actually inspires to take up surfing and then go crowd these lineups will be but a scratch in these lineups. Seriously. Try getting a session out at Lowers without at least 30 of your best friends. Not gonna happen. So click around. Have fun!</p>
+    </article>
+  </div>
+  <div id="predict">
+    <button class="bestbet">Today's Best Bet</button>
+  </div>
+  <!-- <div> -->
+  <!-- <button class="date">Button</button> -->
+  <!-- <p id="date"></p> -->
+  <!-- </div> -->
+</div><!-- end divider -->
+<div class="wavesContainer">
+  <h2>The Waves</h2>
+  <div id="steamers" class="waves">
+    <h2 class="title">Steamer Lane</h2>
+    <img src="img/steamerlane_main.jpg" class="hmImg">
+    <div class="desc">
+      <h3><strong>Current Conditions</strong></h3>
+      <h4><strong>Today's Surf</strong></h4>
+      <ul>
+        <li class="wSize"></li>
+        <li class="sConditions"></li>
+        <li class="sDirection"></li>
+        <li class="wTemp"></li>
+        <li class="wetsuit"></li>
+      </ul>
+      <h4><strong>Weather</strong></h4>
+      <ul>
+        <li class="location"></li>
+        <li class="temp"></li>
+        <li class="currently"></li>
+        <li class="wind"></li>
+        <li class="localTime"></li>
+      </ul>
+      <h4><strong>Wave Characteristics</strong></h4>
+      <ul>
+        <li>Best Size: Chest-high to as big as it gets</li>
+        <li>Swell Direction: NW, W, SW</li>
+        <li>Wave Type: Pointbreak, reef</li>
+        <li>Wave Direction: Mostly rights, left off of Middle Peak</li>
+        <li>Wave Sections: Point, Slot, Middles, Indicators</li>
+      </ul>
+      <button>Gallery</button>
+      <ul class="photos">
+        <li>
+          <a href="img/steamerlane.jpg" data-lightbox="steamers" data-title="Sunny in Central California">
+            <img src="img/steamerlane.jpg">
+            <span>Sunny in central cal</span>
+          </a>
+        </li>
+        <li>
+          <a href="img/steamers2.jpg" data-lightbox="steamers" data-title="Many options to choose from">
+            <img src="img/steamers2.jpg">
+            <span>Many Options</span>
+          </a>
+        </li>
+        <li>
+          <a href="img/steamers3.jpg" data-lightbox="steamers" data-title="Aerial overview">
+            <img src="img/steamers3.jpg">
+            <span>Aerial Overview</span>
+          </a>
+        </li>
+      </ul>
+    </div><!-- end desc container -->
+  </div><!-- end steamers -->
+  <div id="rincon" class="waves">
+    <h2 class="title">Rincon</h2>
+    <img src="img/rincon_main.jpg" class="hmImg">
+    <div class="desc">
+      <h3><strong>Current Conditions</strong></h3>
+      <h4><strong>Today's Surf</strong></h4>
+      <ul>
+        <li class="wSize"></li>
+        <li class="sConditions"></li>
+        <li class="sDirection"></li>
+        <li class="wTemp"></li>
+        <li class="wetsuit"></li>
+      </ul>
+      <h4><strong>Weather</strong></h4>
+      <ul>
+        <li class="location"></li>
+        <li class="temp"></li>
+        <li class="currently"></li>
+        <li class="wind"></li>
+        <li class="localTime"></li>
+      </ul>
+      <h4><strong>Wave Characteristics</strong></h4>
+      <ul>
+        <li>Best Size: Chest-high to double overhead</li>
+        <li>Swell Direction: NW, W</li>
+        <li>Wave Type: Pointbreak</li>
+        <li>Wave Direction: Rights</li>
+        <li>Wave Sections: Indicator, Rivermouth, Cove</li>
+      </ul>
+      <button type="button">Gallery</button>
+      <ul class="photos">
+        <li>
+          <a href="img/rincon_cropped.jpg" data-lightbox="rincon" data-title="Rincon firing">
+            <img src="img/rincon_cropped.jpg">
+            <span>Rincon Firing</span>
+          </a>
+        </li>
+        <li>
+          <a href="img/rincon2.jpg" data-lightbox="rincon" data-title="Classic lineup shot">
+            <img src="img/rincon2.jpg">
+            <span>Classic Lineup</span>
+          </a>
+        </li>
+        <li>
+          <a href="img/rincon3.jpg" data-lightbox="rincon" data-title="The real locals dropping in">
+            <img src="img/rincon3.jpg">
+            <span>The Real Locals</span>
+          </a>
+        </li>
+      </ul>
+    </div><!-- end desc -->
+  </div><!-- end rincon -->
+  <div id="trestles" class="waves">
+    <h2 class="title">Trestles</h2>
+    <img src="img/trestles_main.jpg" class="hmImg">
+    <div class="desc">
+      <h3><strong>Current Conditions</strong></h3>
+      <h4><strong>Today's Surf</strong></h4>
+      <ul>
+        <li class="wSize"></li>
+        <li class="sConditions"></li>
+        <li class="sDirection"></li>
+        <li class="wTemp"></li>
+        <li class="wetsuit"></li>
+      </ul>
+      <h4><strong>Weather</strong></h4>
+      <ul>
+        <li class="location"></li>
+        <li class="temp"></li>
+        <li class="currently"></li>
+        <li class="wind"></li>
+        <li class="localTime"></li>
+      </ul>
+      <h4><strong>Wave Characteristics</strong></h4>
+      <ul>
+        <li>Best Size: Waist-Double Overhead</li>
+        <li>Swell Direction: S, SW, W, NW</li>
+        <li>Wave Type: Reef</li>
+        <li>Wave Direction: Rights and lefts</li>
+        <li>Wave Sections: Cottons, Uppers, Lowers, Middles, Church</li>
+      </ul>
+      <button type="button">Gallery</button>
+      <ul class="photos">
+        <li>
+          <a href="img/trestles1.jpg" data-lightbox="trestles" data-title="Just you and 60 other guys">
+            <img src="img/trestles1.jpg">
+            <span>Crowds</span>
+          </a>
+        </li>
+        <li>
+          <a href="img/trestles2.jpg" data-lightbox="trestles" data-title="Perfection in So Cal">
+            <img src="img/trestles2.jpg">
+            <span>Perfect</span>
+          </a>
+        </li>
+        <li>
+          <a href="img/trestles3.jpg" data-lightbox="trestles" data-title="A veritable skatepark">
+            <img src="img/trestles3.jpg">
+            <span>Veritable Skatepark</span>
+          </a>
+        </li>
+      </ul>
+    </div><!-- end desc -->
+  </div><!-- end trestles -->
+</div><!-- end wavesContainer -->
+<div class="footer">
+  <p><small>&copy; 2014 Brian Wynn Design</small></p>
+</div>
+</div><!-- end container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/lightbox.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

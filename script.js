@@ -64,14 +64,10 @@ $(document).ready(function() {
 	$(".poster").addClass("mainImg");
 
 
-	// Steamer Lane Weather conditions
+	// Weather conditions
 		var waves = $(this);
-
 		var api = "c9cda4e16df76d61eb092e6b5c5910ee3f0c6f3c";
-		//change staCzUrl into a general array carrying the url for each location.
-		//later, clean up the url string to isolate the location. in fact -
-		//lets do that next instead. Done properly, this could clean up the
-		//scalability to allow easy injection of future locations
+		//array carrying the url for each location.
 		var zips = ["95062", "93014","92674"]
 		var location_call = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=" + zips[2] + "&format=json&date=today&key=" + api;
 		$.ajax({
@@ -127,6 +123,121 @@ $(document).ready(function() {
 				},
 			error: function(e) {console.log('epic fail')}
 			});
+
+			var staCzUrl = "http://api.worldweatheronline.com/free/v1/marine.ashx?q=36.5%2C-122&format=json&date=today&key=" + api;
+			$.ajax({
+				type: 'POST',
+				url: staCzUrl,
+				dataType: 'jsonp',
+				data: waves.serialize(),
+				success: function(data){
+					// Water Temp
+					console.log('water temp today: ' + data.data.weather[0].hourly[0].waterTemp_F);
+					var waterTemp = data.data.weather[0].hourly[0].waterTemp_F;
+
+					// Wave Size
+					console.log('wave height meters: ' + data.data.weather[0].hourly[0].swellHeight_m);
+					var wSizeM = data.data.weather[0].hourly[0].swellHeight_m;
+					var wSizeF = wSizeM * 3.28;
+					console.log('wave height ' + wSizeF + ' feet')
+					if ( wSizeF < 1 ) {
+						var wSize = "Flat";
+					} else if ( wSizeF < 3 ) {
+						var wSize = "Knee to waist high";
+					} else if ( wSizeF < 4 ) {
+						var wSize = "Waist to chest high";
+					} else if ( wSizeF < 5 ) {
+						var wSize = "Chest to head high";
+					} else if ( wSizeF < 6 ) {
+						var wSize = "Head high";
+					} else if ( wSizeF < 8 ) {
+						var wSize = "Overhead";
+					} else if ( wSizeF < 12 ) {
+						var wSize = "Overhead to double overhead";
+					} else if ( wSizeF < 18 ) {
+						var wSize = "Double to triple overhead";
+					} else if (wSizeF > 18.1 ) {
+						var wSize = "Triple overhead plus";
+					}
+					console.log('Wave Size Today: ' + wSize);
+
+
+					// Wetsuit Recommendation
+					if ( waterTemp < 55 ) {
+						var wSuit = "5/4 Hooded Fullsuit";
+					} else if ( waterTemp < 60 ) {
+						var wSuit = "4/3 Fullsuit";
+					} else if ( waterTemp < 67 ) {
+						var wSuit = "3/2 Fullsuit";
+					} else if ( waterTemp < 72 ) {
+						var wSuit = "Springsuit";
+					} else if ( waterTemp < 75 ) {
+						var wSuit = "Vest & Trunks";
+					} else if ( waterTemp > 75 ) {
+						var wSuit = "Trunks";
+					}
+					console.log(wSuit);
+
+					// Swell Period
+					console.log('swell period: ' + data.data.weather[0].hourly[0].swellPeriod_secs + ' seconds');
+					var sPeriod = data.data.weather[0].hourly[0].swellPeriod_secs;
+					if ( sPeriod < 7 ) {
+						var swellSig = "Junky, short-period windswell";
+					} else if ( sPeriod < 10 ) {
+						var swellSig = "Windswell";
+					} else if ( sPeriod < 12 ) {
+						var swellSig = "Short period ground swell";
+					} else if ( sPeriod > 12 ) {
+						var swellSig = "Long period ground swell";
+					}
+					console.log("Today's swell conditions: " + swellSig);
+
+					// Swell Direction
+					var swellDir = data.data.weather[0].hourly[0].swellDir;
+					if ( swellDir < 23 ) {
+						var sDir = "NNE";
+					} else if ( swellDir < 45 ) {
+						var sDir = "NE";
+					} else if ( swellDir < 69 ) {
+						var sDir = "ENE";
+					} else if ( swellDir < 90 ) {
+						var sDir = "E";
+					} else if ( swellDir < 116 ) {
+						var sDir = "ESE";
+					} else if ( swellDir < 140 ) {
+						var sDir = "SE";
+					} else if ( swellDir < 170 ) {
+						var sDir = "SSE";
+					} else if ( swellDir < 190 ) {
+						var sDir = "S";
+					} else if ( swellDir < 215 ) {
+						var sDir = "SSW";
+					} else if ( swellDir < 235 ) {
+						var sDir = "SW";
+					} else if ( swellDir < 255 ) {
+						var sDir = "WSW";
+					} else if ( swellDir < 280 ) {
+						var sDir = "W";
+					} else if ( swellDir < 305 ) {
+						var sDir = "WNW";
+					} else if ( swellDir < 320 ) {
+						var sDir = "NW";
+					} else if ( swellDir < 340 ) {
+						var sDir = "NNW";
+					} else if ( swellDir > 341 ) {
+						var sDir = "N"
+					}
+					console.log('Primary swell direction: ' + sDir + ' at ' + swellDir + ' degrees.')
+
+					$('#steamers .wSize').text('Wave size: ' + wSize);
+					$('#steamers .sConditions').text('Swell characteristics: ' + swellSig);
+					$('#steamers .sDirection').text('Swell direction: ' + sDir + ', at ' + swellDir + ' degrees.');
+					$('#steamers .wTemp').text('Water temp: ' + waterTemp + ' degrees');
+					$('#steamers .wetsuit').text('Recommended suit: ' + wSuit);
+				},
+				error: function(e) {console.log('marine epic fail')}
+			});
+
 
 
 		// Marine Conditions
