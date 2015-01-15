@@ -64,12 +64,13 @@ $(document).ready(function() {
 	$(".poster").addClass("mainImg");
 
 
+
+function weatherData() {
 	// Weather conditions
 		var waves = $(this);
-		var api = "c9cda4e16df76d61eb092e6b5c5910ee3f0c6f3c";
 		//array carrying the url for each location.
-		var zips = ["95062", "93014","92674"]
-		var location_call = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=" + zips[2] + "&format=json&date=today&key=" + api;
+		var api = "c9cda4e16df76d61eb092e6b5c5910ee3f0c6f3c";
+		var location_call = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=95062&format=json&date=today&key=" + api;
 		$.ajax({
 			type: 'POST',
 			url: location_call,
@@ -78,17 +79,17 @@ $(document).ready(function() {
 			success: function(data){
 
 				// local time
-				console.log(data.data.current_condition[0].observation_time);
+				console.log(data.data.current_condition[0].observation_time + ' is the time');
 				var gmt = data.data.current_condition[0].observation_time;
 				$('#steamers .gmt').text('Observation Time: ' + gmt + ' GMT');
 
 				//temperature
-				console.log(data.data.current_condition[0].temp_F);
+				console.log(data.data.current_condition[0].temp_F + ' Degrees F');
 				var temp = data.data.current_condition[0].temp_F;
 				$('#steamers .temp').text('Air Temp: ' + temp + ' degrees.');
 
 				//wind direction
-				console.log(data.data.current_condition[0].winddirDegree);
+				console.log(data.data.current_condition[0].winddirDegree + ' is the wind direction');
 				var w_dir = data.data.current_condition[0].winddirDegree;
 
 				if (w_dir < 0) {
@@ -111,18 +112,22 @@ $(document).ready(function() {
 				console.log(windDir);
 
 				// wind speed
-				console.log(data.data.current_condition[0].windspeedMiles);
+				console.log(data.data.current_condition[0].windspeedMiles + ' is the wind speed');
 				var w_speed = data.data.current_condition[0].windspeedMiles;
 				$('#steamers .windDir').text('Wind: From the ' + windDir + ' at ' + w_speed + ' mph');
 
 				// weather Description
-				console.log(data.data.current_condition[0].weatherDesc[0].value);
+				console.log(data.data.current_condition[0].weatherDesc[0].value + ' : current skies');
 				var w_desc = data.data.current_condition[0].weatherDesc[0].value;
 				$('#steamers .weatherDesc').text('Skies: ' + w_desc);
 
 				},
 			error: function(e) {console.log('epic fail')}
 			});
+
+			function windSpeed() {
+
+			};
 
 			var staCzUrl = "http://api.worldweatheronline.com/free/v1/marine.ashx?q=36.5%2C-122&format=json&date=today&key=" + api;
 			$.ajax({
@@ -138,7 +143,8 @@ $(document).ready(function() {
 					// Wave Size
 					console.log('wave height meters: ' + data.data.weather[0].hourly[0].swellHeight_m);
 					var wSizeM = data.data.weather[0].hourly[0].swellHeight_m;
-					var wSizeF = wSizeM * 3.28;
+					var wSizeF = (wSizeM * 3.28).toPrecision(3);
+					//var wSizeF = waveSizeF.toFixed(3);
 					console.log('wave height ' + wSizeF + ' feet')
 					if ( wSizeF < 1 ) {
 						var wSize = "Flat";
@@ -237,8 +243,9 @@ $(document).ready(function() {
 				},
 				error: function(e) {console.log('marine epic fail')}
 			});
+}
 
-
+weatherData();
 
 		// Marine Conditions
 
@@ -249,5 +256,5 @@ $(document).ready(function() {
 		//var api = "c9cda4e16df76d61eb092e6b5c5910ee3f0c6f3c";
 		//var trestlesUrl = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=92674&format=json&date=today&key=" + api;
 
-
+		//var zips = ["95062", "93014","92674"];
 });
