@@ -1,30 +1,53 @@
-var api = "c9cda4e16df76d61eb092e6b5c5910ee3f0c6f3c";
-var waves = $(this);
+var api = "c9cda4e16df76d61eb092e6b5c5910ee3f0c6f3c";                 // api call
+var waves = $(this);                                                  // sets $(this) value globally for wave
 
-function santaCruzMarineCall() {
-  $.ajax({
-    type: 'POST',
+function santaCruzMarineCall() {                                      // declare santaCruzMarineCall function
+        $.ajax({                                                      // jQuery ajax declaration
+    type: 'POST',                                                     // declare type of ajax call
     url: "http://api.worldweatheronline.com/free/v1/marine.ashx?q=36.5%2C-122&format=json&date=today&key=" + api,
-    dataType: 'jsonp',
-    data: waves.serialize(),
-    success: function(data){
-      var swellDir = data.data.weather[0].hourly[0].swellDir;         // gets swell direction
-      var waterTemp = data.data.weather[0].hourly[0].waterTemp_F;     // gets water temp
-      var wSizeM = data.data.weather[0].hourly[0].swellHeight_m;      // gets swell height in meters
-      var wSizeF = (wSizeM * 3.28).toPrecision(3);                    // meters to feet
-      var sPeriod = data.data.weather[0].hourly[0].swellPeriod_secs;
-
-      console.log('water temp today: ' + waterTemp);
-      console.log(swellDir);
-      console.log('wave height feet: ' + wSizeF);
-      console.log('swell period: ' + sPeriod + ' seconds');
-
+    dataType: 'jsonp',                                                // declare dataType, using parsed json
+    data: waves.serialize(),                                          // setting $(this).serialize() using waves variable
+    success: function(data){                                          // successful api call performs function
+      receive(data);                                                  // calls receive function
       swDir();                                                        // calls swDir function
       wetsuit();                                                      // calls wetsuit function
       swellPeriod();                                                  // calls swell period
     }
   });
 };
+
+function receive(data) {                                          // declare receive function taking data as the argument
+  var swellDir = data.data.weather[0].hourly[0].swellDir;         // gets swell direction
+  var waterTemp = data.data.weather[0].hourly[0].waterTemp_F;     // gets water temp
+  var wSizeM = data.data.weather[0].hourly[0].swellHeight_m;      // gets swell height in meters
+  var wSizeF = (wSizeM * 3.28).toPrecision(3);                    // meters to feet
+  var sPeriod = data.data.weather[0].hourly[0].swellPeriod_secs;  // Swell period
+  console.log('water temp today: ' + waterTemp);                  // prints water temp string
+  console.log(swellDir);                                          // prints swell direction
+  console.log('wave height feet: ' + wSizeF);                     // prints wave size converted to feet
+  console.log('swell period: ' + sPeriod + ' seconds');           // prints swell period
+}
+// Sam's Notes
+/*function tennessee() {
+  'use strict';
+
+  $(document).ready(init);
+
+  function init() {
+    $('#get-weather').click(getWeather);
+  }
+
+  function getWeather() {
+    var url = 'http://api.wonderground.com/api/dd0113b11366fc5b/conditions/TN/Nashville.json?callback=?';
+    $.getJson(url, receive);
+  }
+
+  function receive(data) {
+    var temp = data.current_observation.temperature_string;
+    console.log(temp);
+  }
+};*/
+
 
 function swDir() {
   var swellDir;
@@ -98,5 +121,6 @@ function swellPeriod() {
   }
   console.log("Today's swell conditions: " + swellSig);
 };
+
 
 santaCruzMarineCall();
