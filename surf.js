@@ -27,7 +27,8 @@ function santaCruzMarineCall() {
 };
 
 function swDir() {
-  var swellDir = data.data.weather[0].hourly[0].swellDir;
+  var swellDir;
+  var sDir;
   if ( swellDir < 23 ) {
      sDir = "NNE";
   } else if ( swellDir < 45 ) {
