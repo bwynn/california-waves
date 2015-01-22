@@ -113,11 +113,11 @@ function swellPeriod() {
   if ( sPeriod < 7 ) {
     var swellSig = "Junky, short-period windswell";
   } else if ( sPeriod < 10 ) {
-    var swellSig = "Windswell";
+     swellSig = "Windswell";
   } else if ( sPeriod < 12 ) {
-    var swellSig = "Short period ground swell";
+     swellSig = "Short period ground swell";
   } else if ( sPeriod > 12 ) {
-    var swellSig = "Long period ground swell";
+     swellSig = "Long period ground swell";
   }
   console.log("Today's swell conditions: " + swellSig);
 };
