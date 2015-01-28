@@ -1,6 +1,23 @@
 var api = "c9cda4e16df76d61eb092e6b5c5910ee3f0c6f3c";                 // api call
 var waves = $(this);                                                  // sets $(this) value globally for wave
 
+function santaCruzWeather() {
+var location_call = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=95062&format=json&date=today&key=" + api;
+$.ajax({
+  type: 'POST',
+  url: location_call,
+  dataType: 'jsonp',
+  data: waves.serialize(),
+  success: function(data){
+      localTime(data);                                                // calls localTime function
+      airTemp(data);                                                  // calls airTemp function
+      windConditions(data);                                           // calls windDirection function
+      generalConditions(data);                                        // calls generalConditions function
+    },
+  error: function(e) {console.log('epic fail')}
+  });
+};
+
 function santaCruzMarineCall() {                                      // declare santaCruzMarineCall function
         $.ajax({                                                      // jQuery ajax declaration
     type: 'POST',                                                     // declare type of ajax call
@@ -12,19 +29,84 @@ function santaCruzMarineCall() {                                      // declare
       swDir(data);                                                    // calls swDir function
       wetsuit(data);                                                  // calls wetsuit function
       swellPeriod(data);                                              // calls swellPeriod function
-    }
+    },
+    error: function(e) {console.log('epic marine fail')}
   });
+};
+
+function localTime(data) {
+  // local time
+  var gmt = data.data.current_condition[0].observation_time;
+  console.log('Observation time: ' + gmt);
+};
+
+function airTemp(data) {
+  //temperature
+  var temp = data.data.current_condition[0].temp_F;
+  console.log('Degrees f: '+ temp);
+};
+
+function windConditions(data) {
+  //wind direction
+  var w_dir = data.data.current_condition[0].winddirDegree;
+  var w_speed = data.data.current_condition[0].windspeedMiles;
+
+  if (w_dir < 0) {
+  var windDir = "North";
+    } else if (w_dir < 45) {
+  var windDir = "North East";
+      } else if (w_dir < 90) {
+  var windDir = "East";
+      } else if (w_dir < 135) {
+  var windDir = "South East";
+        } else if (w_dir < 180) {
+  var windDir = "South";
+          } else if (w_dir < 225) {
+  var windDir = "South West";
+            } else if (w_dir < 270) {
+  var windDir = "West";
+              } else if (w_dir < 315) {
+  var windDir = "North West";
+                }
+  console.log('Wind: From the ' + windDir + ' at ' + w_speed + ' mph');
+};
+
+function generalConditions(data) {
+  // weather Description
+  var w_desc = data.data.current_condition[0].weatherDesc[0].value;
+  console.log('Skies: ' + w_desc);
+
 };
 
 function swellSize(data) {                                          // declare receive function taking data as the argument
   var wSizeM = data.data.weather[0].hourly[0].swellHeight_m;      // gets swell height in meters
   var wSizeF = (wSizeM * 3.28).toPrecision(3);                    // meters to feet
+  if ( wSizeF < 1 ) {
+    var wSize = "Flat";
+  } else if ( wSizeF < 3 ) {
+    var wSize = "Knee to waist high";
+  } else if ( wSizeF < 4 ) {
+    var wSize = "Waist to chest high";
+  } else if ( wSizeF < 5 ) {
+    var wSize = "Chest to head high";
+  } else if ( wSizeF < 6 ) {
+    var wSize = "Head high";
+  } else if ( wSizeF < 8 ) {
+    var wSize = "Overhead";
+  } else if ( wSizeF < 12 ) {
+    var wSize = "Overhead to double overhead";
+  } else if ( wSizeF < 18 ) {
+    var wSize = "Double to triple overhead";
+  } else if (wSizeF > 18.1 ) {
+    var wSize = "Triple overhead plus";
+  }
   console.log('wave height feet: ' + wSizeF);                     // prints wave size converted to feet
+  console.log('wave size: ' + wSize);                     // prints wave size converted to feet
 };
 
 function swDir(data) {
     var swellDir = data.data.weather[0].hourly[0].swellDir;         // gets swell direction
-    var sDir;                                                       
+    var sDir;                                                       // initializing sDir variable
     if ( swellDir < 23 ) {
        sDir = "NNE";
     } else if ( swellDir < 45 ) {
@@ -97,4 +179,5 @@ function swellPeriod(data) {
 };
 
 
+santaCruzWeather();
 santaCruzMarineCall();
