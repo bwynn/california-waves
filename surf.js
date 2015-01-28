@@ -34,6 +34,72 @@ function santaCruzMarineCall() {                                      // declare
   });
 };
 
+function carpenteriaWeather() {
+var location_call = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=93014&format=json&date=today&key=" + api;
+$.ajax({
+  type: 'POST',
+  url: location_call,
+  dataType: 'jsonp',
+  data: waves.serialize(),
+  success: function(data){
+      localTime(data);                                                // calls localTime function
+      airTemp(data);                                                  // calls airTemp function
+      windConditions(data);                                           // calls windDirection function
+      generalConditions(data);                                        // calls generalConditions function
+    },
+  error: function(e) {console.log('epic fail')}
+  });
+};
+
+function carpenteriaMarineCall() {                                      // declare santaCruzMarineCall function
+        $.ajax({                                                      // jQuery ajax declaration
+    type: 'POST',                                                     // declare type of ajax call
+    url: "http://api.worldweatheronline.com/free/v1/marine.ashx?q=34.22%2C-119.28&format=json&date=today&key=" + api,
+    dataType: 'jsonp',                                                // declare dataType, using parsed json
+    data: waves.serialize(),                                          // setting $(this).serialize() using waves variable
+    success: function(data){                                          // successful api call performs function
+      swellSize(data);                                                // calls swellSize function
+      swDir(data);                                                    // calls swDir function
+      wetsuit(data);                                                  // calls wetsuit function
+      swellPeriod(data);                                              // calls swellPeriod function
+    },
+    error: function(e) {console.log('epic marine fail')}
+  });
+};
+
+function sanClementeWeather() {
+var location_call = "http://api.worldweatheronline.com/free/v1/weather.ashx?q=92674&format=json&date=today&key=" + api;
+$.ajax({
+  type: 'POST',
+  url: location_call,
+  dataType: 'jsonp',
+  data: waves.serialize(),
+  success: function(data){
+      localTime(data);                                                // calls localTime function
+      airTemp(data);                                                  // calls airTemp function
+      windConditions(data);                                           // calls windDirection function
+      generalConditions(data);                                        // calls generalConditions function
+    },
+  error: function(e) {console.log('epic fail')}
+  });
+};
+
+function sanClementeMarineCall() {                                      // declare santaCruzMarineCall function
+        $.ajax({                                                      // jQuery ajax declaration
+    type: 'POST',                                                     // declare type of ajax call
+    url: "http://api.worldweatheronline.com/free/v1/marine.ashx?q=33.22%2C-117.36&format=json&date=today&key=" + api,
+    dataType: 'jsonp',                                                // declare dataType, using parsed json
+    data: waves.serialize(),                                          // setting $(this).serialize() using waves variable
+    success: function(data){                                          // successful api call performs function
+      swellSize(data);                                                // calls swellSize function
+      swDir(data);                                                    // calls swDir function
+      wetsuit(data);                                                  // calls wetsuit function
+      swellPeriod(data);                                              // calls swellPeriod function
+    },
+    error: function(e) {console.log('epic marine fail')}
+  });
+};
+
 function localTime(data) {
   // local time
   var gmt = data.data.current_condition[0].observation_time;
@@ -181,3 +247,7 @@ function swellPeriod(data) {
 
 santaCruzWeather();
 santaCruzMarineCall();
+carpenteriaWeather();
+carpenteriaMarineCall();
+sanClementeWeather();
+sanClementeMarineCall();
